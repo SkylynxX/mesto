@@ -1,0 +1,8 @@
+.profile__edit-button-img {
+  background-image: url(../../../images/Vector_edit-button.png);
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+}

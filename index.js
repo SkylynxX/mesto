@@ -1,5 +1,3 @@
-
-
 function open_popup_head () {
   let popup_head_form = document.querySelector('.popup');
   popup_head_form.classList.add('popup_opened');
