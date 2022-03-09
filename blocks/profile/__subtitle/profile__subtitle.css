@@ -1,8 +1,6 @@
 .profile__subtitle {
   margin-top: 16px;
-  font-weight: 500;
-  font-size: 42px;
-  line-height: 48px;
+  font-weight: normal;
   /* border: 1px solid red; */
   font-size: 18px;
   line-height: 22px;
