@@ -1,6 +1,11 @@
+
+//Функция открытия попапа
 function open_popup_head () {
+  //Вынесение в переменную дом элемента попапа
   let popup_head_form = document.querySelector('.popup');
+  //добавляем класс открытия попапа
   popup_head_form.classList.add('popup_opened');
+  //записываем содержимое html в переменную из дом элемента
   let popup_text_name = document.querySelector ('.profile__title').innerHTML;
   let popup_text_description = document.querySelector ('.profile__subtitle').innerHTML;
   let popup_form_name = document.querySelector ('.popup__name');
@@ -15,7 +20,9 @@ function close_popup_head () {
   popup_head_form.classList.remove('popup_opened');
 }
 
+//присваеваем переменной дом элемент кнопке редактирования профиля
 let popup_show_button = document.querySelector('.profile__edit-button');
+//добавляем слушатель события для кнопки открытия попапа по клику, вызываем соотв. функцию
 popup_show_button.addEventListener('click', open_popup_head);
 
 let popup_close_button = document.querySelector('.popup__close');

@@ -6,6 +6,8 @@
   row-gap: 20px;
   min-height: 744px;
   margin-bottom: 67px;
+  list-style-type: none;
+  padding: 0;
 }
 
 @media screen and (max-width: 879px) {
