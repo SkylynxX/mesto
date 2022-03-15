@@ -1,3 +1,14 @@
 .profile__title-box {
   display: flex;
+  max-height: 35px;
+  align-items: center;
+  margin: 22px 0 0 30px;
+}
+
+@media screen and (max-width: 485px) {
+  .profile__title-box {
+    margin: 22px 0 0 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
 }

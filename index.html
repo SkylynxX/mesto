@@ -4,86 +4,84 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mesto</title>
+  <title>Место</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
-  <div class="header">
+  <header class="header">
     <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Mesto">
-  </div>
+  </header>
   <section class="profile">
     <img class="profile__avatar" src="./images/avatar-image.jpg" alt="портрет человека в красной шапке">
     <div class="profile__info">
-      <div class="profile__info-box">
-        <div class="profile__title-box">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button" type="button" ><div class="profile__edit-button-img"></div></button>
-        </div>
-        <p class="profile__subtitle">Исследователь океана</p>
+      <div class="profile__title-box">
+        <h1 class="profile__title">Жак-Ив Кусто</h1>
+        <button class="profile__edit-button" type="button" ></button>
       </div>
-      <button class="profile__add-button-border"><div class="profile__add-button"></div></button>
+      <p class="profile__subtitle">Исследователь океана</p>
+      <button class="profile__add-button"></button>
     </div>
   </section>
-  <ul class="elements">
-    <li class="element">
-      <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="крепость">
-      <div class="element__group">
-        <p class="element__group-text">Карачаевск</p>
-        <button class="element__group-button" type="button" aria-label="Лайк"></button>
-      </div>
-    </li>
-    <li class="element">
-      <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="равнина">
-      <div class="element__group">
-        <p class="element__group-text">Гора Эльбрус</p>
-        <button class="element__group-button" type="button" aria-label="Лайк"></button>
-      </div>
-    </li>
-    <li class="element">
-      <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Гора">
-      <div class="element__group">
-        <p class="element__group-text">Домбай</p>
-        <button class="element__group-button" type="button" aria-label="Лайк"></button>
-      </div>
-    </li>
-    <li class="element">
-      <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="равнина">
-      <div class="element__group">
-        <p class="element__group-text">Гора Эльбрус</p>
-        <button class="element__group-button" type="button" aria-label="Лайк"></button>
-      </div>
-    </li>
-    <li class="element">
-      <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Гора">
-      <div class="element__group">
-        <p class="element__group-text">Домбай</p>
-        <button class="element__group-button" type="button" aria-label="Лайк"></button>
-       </div>
-    </li>
-    <li class="element">
-      <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="крепость">
-      <div class="element__group">
-        <p class="element__group-text">Карачаево-Черкессия</p>
-        <button class="element__group-button" type="button" aria-label="Лайк"></button>
-      </div>
-    </li>
-  </ul>
-  <footer class="footer">
-    <p class="autor">&copy;2020 Mesto Russia</p>
-  </footer>
+  <section class="cards">
+    <ul class="elements">
+      <li class="element">
+        <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="крепость">
+        <div class="element__group">
+          <p class="element__group-text">Карачаевск</p>
+          <button class="element__group-button" type="button" aria-label="Лайк"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="равнина">
+        <div class="element__group">
+          <p class="element__group-text">Гора Эльбрус</p>
+          <button class="element__group-button" type="button" aria-label="Лайк"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Гора">
+        <div class="element__group">
+          <p class="element__group-text">Домбай</p>
+          <button class="element__group-button" type="button" aria-label="Лайк"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="равнина">
+        <div class="element__group">
+          <p class="element__group-text">Гора Эльбрус</p>
+          <button class="element__group-button" type="button" aria-label="Лайк"></button>
+        </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Гора">
+        <div class="element__group">
+          <p class="element__group-text">Домбай</p>
+          <button class="element__group-button" type="button" aria-label="Лайк"></button>
+         </div>
+      </li>
+      <li class="element">
+        <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="крепость">
+        <div class="element__group">
+          <p class="element__group-text">Карачаево-Черкессия</p>
+          <button class="element__group-button" type="button" aria-label="Лайк"></button>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <footer class="footer">&copy;2020 Mesto Russia</footer>
   <div class="popup">
     <div class="popup__container">
       <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
       <form class="popup__form">
-        <fieldset class="popup__input">
+        <fieldset class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <p class="popup__p"><input class="popup__name" type="text" placeholder="Логин"></p>
-          <p class="popup__p"><input class="popup__info" type="text" placeholder="Информация о пользователе"></p>
+          <input class="popup__input popup__input_type_name" type="text" autocomplete="off" required name="name" placeholder="Логин">
+          <input class="popup__input popup__input_type_info" type="text" autocomplete="off" required name="userInfo" placeholder="Информация о пользователе">
           <input class="popup__save" type="submit" value="Сохранить">
         </fieldset>
       </form>
     </div>
   </div>
-  <script src="./index.js"></script>
+  <script src="./scripts.js"></script>
 </body>
 </html>

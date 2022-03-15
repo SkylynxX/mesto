@@ -4,7 +4,7 @@
   border-radius: 10px;
   background-color: white;
   width: 430px;
-  height: 330px;
+  min-height: 330px;
 }
 
 @media screen and (max-width: 485px) {
