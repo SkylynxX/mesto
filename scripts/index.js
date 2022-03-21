@@ -1,6 +1,4 @@
 let popupHeadForm = document.querySelector('.popup');
-let popupTextName = document.querySelector ('.profile__title').innerHTML;
-let popupTextDescription = document.querySelector ('.profile__subtitle').innerHTML;
 let popupFormName = document.querySelector ('.popup__input_type_name');
 let popupFormInfo = document.querySelector ('.popup__input_type_info');
 let popupShowButton = document.querySelector('.profile__edit-button');
@@ -12,8 +10,8 @@ let infoSubtitle = document.querySelector ('.profile__subtitle');
 //Функция открытия попапа
 function openPopupHead () {
   popupHeadForm.classList.add('popup_opened');
-  popupFormName.value = popupTextName;
-  popupFormInfo.value = popupTextDescription;
+  popupFormName.value = nameTitle.textContent;
+  popupFormInfo.value = infoSubtitle.textContent;
   // console.log (popup_text_description);
 }
 

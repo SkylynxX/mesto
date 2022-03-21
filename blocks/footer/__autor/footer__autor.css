@@ -1,0 +1,12 @@
+.footer__autor {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 879px) {
+  .footer {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

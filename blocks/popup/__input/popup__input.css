@@ -4,14 +4,25 @@
   max-width: 83%;
   margin: 50px 36px 0 36px;
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0 0 9px 0;
   width: 100%;
 }
+
+.popup__input:nth-last-of-type(2) {
+  margin: 30px 36px 0 36px;
+}
+/* Reasone of use nth-last-of-type(2) instead last-of-type descripbed here: https://stackoverflow.com/questions/29859388/last-of-type-doesnt-work */
 
 @media screen and (max-width: 485px) {
   .popup__input {
     max-width: 238px;
     margin: 75px 22px 0 22px;
   }
+
+  .popup__input:nth-last-of-type(2) {
+    margin: 30px 22px 0 22px;
+  }
+  /* Reasone of use nth-last-of-type(2) instead last-of-type descripbed here: https://stackoverflow.com/questions/29859388/last-of-type-doesnt-work */
+
 }

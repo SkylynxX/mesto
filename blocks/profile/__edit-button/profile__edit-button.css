@@ -5,6 +5,7 @@
   height: 24px;
   background-color: black;
   background-position: center;
+  background-size: 10px 10px;
   align-self: flex-end;
   background-image: url(../../../images/Vector.svg);
   background-repeat: no-repeat;
@@ -18,8 +19,10 @@
 
 @media screen and (max-width: 650px) {
   .profile__edit-button {
+    margin-bottom: 5px;
+    margin-right: 10px;
+    background-size: 7.5px 7.5px;
     width: 18px;
     height: 18px;
-    margin: 0 0 6px 10px;
   }
 }

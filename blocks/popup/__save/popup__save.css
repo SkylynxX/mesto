@@ -8,11 +8,22 @@
   border-radius: 2px;
   padding: 0;
   border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  transition: opacity 1s;
+}
+
+.popup__save:hover {
+  opacity: 80%;
 }
 
 @media screen and (max-width: 485px) {
   .popup__save {
     max-width: 238px;
     margin: 45px 22px 0 22px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
