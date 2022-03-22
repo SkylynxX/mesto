@@ -10,7 +10,7 @@
 }
 
 .popup__input:nth-last-of-type(2) {
-  margin: 30px 36px 0 36px;
+  margin-top: 30px;
 }
 /* Reasone of use nth-last-of-type(2) instead last-of-type descripbed here: https://stackoverflow.com/questions/29859388/last-of-type-doesnt-work */
 
@@ -21,7 +21,7 @@
   }
 
   .popup__input:nth-last-of-type(2) {
-    margin: 30px 22px 0 22px;
+    margin-top: 30px;
   }
   /* Reasone of use nth-last-of-type(2) instead last-of-type descripbed here: https://stackoverflow.com/questions/29859388/last-of-type-doesnt-work */
 

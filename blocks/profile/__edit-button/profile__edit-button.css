@@ -5,6 +5,7 @@
   height: 24px;
   background-color: black;
   background-position: center;
+  object-fit: contain;
   background-size: 10px 10px;
   align-self: flex-end;
   background-image: url(../../../images/Vector.svg);
