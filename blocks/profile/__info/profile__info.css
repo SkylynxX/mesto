@@ -8,9 +8,16 @@
   /* justify-content: space-between; */
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 895px) {
   .profile__info {
     display: flex;
     flex-direction: column;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .profile__info {
+    width: 100%;
   }
 }
