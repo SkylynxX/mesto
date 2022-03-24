@@ -4,6 +4,12 @@
   margin: 22px 0 0 30px;
 }
 
+@media screen and (max-width: 900px) {
+  .profile__title-box {
+   width: 100%;
+  }
+}
+
 @media screen and (max-width: 560px) {
   .profile__title-box {
     margin-top: 22px;
