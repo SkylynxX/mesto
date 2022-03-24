@@ -23,7 +23,7 @@
   }
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 580px) {
   .profile__subtitle {
     margin-top: 12px;
     margin-left: 0;
