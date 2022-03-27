@@ -6,7 +6,7 @@
 
 @media screen and (max-width: 900px) {
   .profile__title-box {
-   width: 100%;
+   /* width: 100%; */
   }
 }
 
@@ -16,5 +16,13 @@
     margin-left: 46px;
     font-size: 14px;
     line-height: 17px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile__title-box {
+    max-width: 217px;
+    margin-left: 43px;
+    margin-right: auto;
   }
 }

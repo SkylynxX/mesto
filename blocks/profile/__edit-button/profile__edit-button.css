@@ -27,3 +27,10 @@
     height: 18px;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .profile__edit-button {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}
