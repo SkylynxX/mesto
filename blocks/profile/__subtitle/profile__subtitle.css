@@ -1,7 +1,6 @@
 .profile__subtitle {
   margin: 16px 0 0 30px;
   font-weight: normal;
-  /* border: 1px solid red; */
   font-size: 18px;
   line-height: 22px;
   grid-row-start: 2;
@@ -13,23 +12,18 @@
 
 @media screen and (max-width: 879px) {
   .profile__subtitle {
-    max-width: 350px;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .profile__subtitle {
-    max-width: 350px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media screen and (max-width: 580px) {
   .profile__subtitle {
     margin-top: 12px;
-    margin-left: 0;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    width: 100%;
+    max-width: 282px;
   }
 }
