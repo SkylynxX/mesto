@@ -10,7 +10,7 @@
   max-width: 500px;
 }
 
-@media screen and (max-width: 879px) {
+@media screen and (max-width: 895px) {
   .profile__subtitle {
     max-width: 100%;
     margin-left: auto;

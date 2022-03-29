@@ -8,7 +8,7 @@
   font-style: normal;
 }
 
-@media screen and (max-width: 879px) {
+@media screen and (max-width:895px) {
   .root {
     max-width: 100%;
   }
