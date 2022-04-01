@@ -1,10 +1,9 @@
 .elements {
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
-  grid-template-rows: auto;
+  grid-auto-rows: 361px;
   column-gap: 17px;
   row-gap: 20px;
-  min-height: 744px;
   margin-bottom: 67px;
   list-style-type: none;
   padding: 0;

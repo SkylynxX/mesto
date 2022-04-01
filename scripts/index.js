@@ -19,14 +19,6 @@ function closePopupHead () {
   popupHeadForm.classList.remove('popup_opened');
 }
 
-popupShowButton.addEventListener('click', openPopupHead);
-popupCloseButton.addEventListener('click', closePopupHead);
-
-
-// Находим форму в DOM
-
-// Находим поля формы в DOM
-
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function formSubmitHandler (evt) {
@@ -39,5 +31,8 @@ function formSubmitHandler (evt) {
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
 
+
+formElement.addEventListener('submit', formSubmitHandler);
+popupShowButton.addEventListener('click', openPopupHead);
+popupCloseButton.addEventListener('click', closePopupHead);

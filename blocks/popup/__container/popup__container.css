@@ -4,13 +4,14 @@
   border-radius: 10px;
   background-color: white;
   max-width: 430px;
-  min-height: 330px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 430px);
   position: relative;
+  align-items: flex-start;
 }
 
 @media screen and (max-width: 560px) {
   .popup__container {
     max-width: 282px;
-    min-height: 322px;
   }
 }

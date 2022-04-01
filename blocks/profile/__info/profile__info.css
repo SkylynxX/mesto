@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 583px auto;
   grid-template-rows: 60px 60px;
-  width: 100%;
+  max-width: 100%;
   /* justify-content: space-between; */
 }
 
@@ -12,6 +12,5 @@
   .profile__info {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
   }
 }
