@@ -6,6 +6,11 @@ let popupCloseButton = document.querySelector('.popup__close');
 let formElement = document.querySelector('.popup__form');
 let nameTitle = document.querySelector ('.profile__title');
 let infoSubtitle = document.querySelector ('.profile__subtitle');
+let popupNewItemForm = document.querySelector('.popup_new-item');
+let popupPlusShowButton = document.querySelector('.profile__add-button');
+let popupPlusCloseButton = document.querySelector('.popup__close_new-item');
+let likeButtons = document.querySelectorAll('.element__group-button');
+
 
 //Функция открытия попапа
 function openPopupHead () {
@@ -29,10 +34,32 @@ function formSubmitHandler (evt) {
   closePopupHead();
 }
 
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
 
+function openPopupPlus () {
+  popupNewItemForm.classList.add('popup_opened');
+  console.log (openPopupPlus);
+}
+
+function closePopupPlus () {
+  popupNewItemForm.classList.remove('popup_opened');
+}
+
+
+
+
+likeButtons.forEach(function (item){
+  item.addEventListener('click',function (){
+    if (item.classList.contains('element__group-button_black')){
+      item.classList.remove('element__group-button_black');
+    }
+    else {
+    item.classList.add('element__group-button_black');
+    }
+  });
+});
 
 formElement.addEventListener('submit', formSubmitHandler);
 popupShowButton.addEventListener('click', openPopupHead);
 popupCloseButton.addEventListener('click', closePopupHead);
+popupPlusShowButton.addEventListener('click', openPopupPlus);
+popupPlusCloseButton.addEventListener('click', closePopupPlus);
