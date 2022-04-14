@@ -6,4 +6,5 @@
   width: 282px;
   object-fit: cover;
   position: relative;
+  cursor: pointer;
 }
