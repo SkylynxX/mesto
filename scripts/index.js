@@ -44,10 +44,23 @@ const initialCards = [
   }
 ];
 
-
+//Функция добавления собатия для закрытиря попапа по клику на overlay или нажатию Esc\\
+function addCloseListener(popup) {
+  popup.addEventListener('click', (evt) => {
+    if(evt.target === evt.currentTarget) {
+      closePopup(popup);
+    }
+  });
+    document.addEventListener('keydown', (evt) => {
+    if(evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  });
+}
 //Функция открытия попапа
 function openPopup (popup) {
   popup.classList.add('popup_opened');
+  addCloseListener(popup);
 };
 
 //Функция закрытие попапа
@@ -105,9 +118,6 @@ function addCard (evt) {
   popupNIForm.reset();
 };
 
-
-
-
 formElement.addEventListener('submit', formSubmitHandler);
 popupShowButton.addEventListener('click', openPopupHead);
 popupCloseButton.addEventListener('click', () => closePopup (popupHeadForm));
@@ -115,4 +125,5 @@ popupPlusShowButton.addEventListener('click', () => openPopup (popupNewItemForm)
 popupPlusCloseButton.addEventListener('click', () => closePopup (popupNewItemForm));
 popupNIForm.addEventListener('submit', addCard);
 popupImgClose.addEventListener('click', () => closePopup (popupImage));
+
 
