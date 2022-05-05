@@ -41,14 +41,18 @@ const setEventListeners = (formElement, formDescription) => {
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
-  return !inputElement.validity.valid;
-});
+    return !inputElement.validity.valid;
+  });
 };
+
+const disableButten = (buttonElement, inactiveButtonClass) => {
+  buttonElement.classList.add(inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
+}
 
 const toggleButtonState = (inputList, buttonElement, formDescription) => {
   if (hasInvalidInput(inputList)) {
-  buttonElement.classList.add(formDescription.inactiveButtonClass);
-  buttonElement.setAttribute('disabled', true);
+    disableButten(buttonElement, formDescription.inactiveButtonClass);
 } else {
   buttonElement.classList.remove(formDescription.inactiveButtonClass);
   buttonElement.removeAttribute('disabled');

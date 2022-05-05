@@ -16,33 +16,14 @@ const popupNIFormLink = document.querySelector('.popup__input_new-item_link');
 const popupNIForm = document.querySelector('.popup__form_new-item');
 const popupImage = document.querySelector('.popup-image');
 const popupImgClose = document.querySelector('.popup-image__close');
+const popupImageImg = popupImage.querySelector('.popup-image__img');
 
-const initialCards = [
-  {
-    name: 'Витебский вокзал',
-    link: 'https://images.unsplash.com/photo-1551709076-89f2499d383b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-  },
-  {
-    name: 'Исаакиевский собор',
-    link: 'https://images.unsplash.com/photo-1603732547557-b8f216d50442?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80'
-  },
-  {
-    name: 'Магазин Купцов Елисеевых',
-    link: 'https://images.unsplash.com/photo-1550643749-d9add3db05e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
-  },
-  {
-    name: 'Дворцовая набережная',
-    link: 'https://images.unsplash.com/photo-1592029328294-dd71c43655c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80'
-  },
-  {
-    name: 'Казанский собор',
-    link: 'https://images.unsplash.com/photo-1613739341441-2e932ab930c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-  },
-  {
-    name: 'Санкт-Петребург',
-    link: 'https://images.unsplash.com/photo-1603732547504-ad3c5598e347?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
+const checkEsc = (evt) => {
+  if(evt.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
   }
-];
+};
+
 
 //Функция добавления собатия для закрытиря попапа по клику на overlay или нажатию Esc\\
 function addCloseListener(popup) {
@@ -51,12 +32,9 @@ function addCloseListener(popup) {
       closePopup(popup);
     }
   });
-    document.addEventListener('keydown', (evt) => {
-    if(evt.key === 'Escape') {
-      closePopup(popup);
-    }
-  });
+    document.addEventListener('keydown', checkEsc);
 }
+
 //Функция открытия попапа
 function openPopup (popup) {
   popup.classList.add('popup_opened');
@@ -66,6 +44,7 @@ function openPopup (popup) {
 //Функция закрытие попапа
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', checkEsc);
 };
 
 //Функция открытия попапа редактирования профиля
@@ -78,7 +57,7 @@ function openPopupHead () {
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function formSubmitHandler (evt) {
+function formSubmitProfile (evt) {
   evt.preventDefault();
   nameTitle.textContent =  popupFormName.value;
   infoSubtitle.textContent = popupFormInfo.value;
@@ -88,14 +67,15 @@ function formSubmitHandler (evt) {
 
 function createCard (item) {
   const elementContent = templateElemet.querySelector('.element').cloneNode(true);
-  elementContent.querySelector('.element__image').src = item.link;
+  const cardImg = elementContent.querySelector('.element__image');
+  cardImg.src = item.link;
   elementContent.querySelector('.element__group-text').textContent = item.name;
-  elementContent.querySelector('.element__image').alt = item.name;
+  cardImg.alt = item.name;
   elementContent.querySelector('.element__group-button').addEventListener('click', (evt) => evt.target.classList.toggle('element__group-button_black'));
   elementContent.querySelector('.element__trash').addEventListener('click', (evt) => evt.target.closest('.element').remove());
-  elementContent.querySelector('.element__image').addEventListener('click', function(){
-    popupImage.querySelector('.popup-image__img').src = item.link;
-    popupImage.querySelector('.popup-image__img').alt = item.name;
+  cardImg.addEventListener('click', function(){
+    popupImageImg.src = item.link;
+    popupImageImg.alt = item.name;
     popupImage.querySelector('.popup-image__text').textContent = item.name;
     openPopup(popupImage);
   });
@@ -116,9 +96,10 @@ function addCard (evt) {
   renderCard({'name': popupNIFormName.value, 'link': popupNIFormLink.value});
   closePopup (popupNewItemForm);
   popupNIForm.reset();
+  disableButten(popupNewItemForm.querySelector('.popup__save_new-item'), 'popup__save_disabled');
 };
 
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', formSubmitProfile);
 popupShowButton.addEventListener('click', openPopupHead);
 popupCloseButton.addEventListener('click', () => closePopup (popupHeadForm));
 popupPlusShowButton.addEventListener('click', () => openPopup (popupNewItemForm));
