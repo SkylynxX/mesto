@@ -34,7 +34,7 @@
       <div class="popup__container">
         <button class="popup__close" type="button" title="Закрыть окно" aria-label="Закрыть окно"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="changeNameInfo">
+        <form class="popup__form popup__form_profile" name="changeNameInfo">
           <input class="popup__input popup__input_type_name" id="input-name" type="text" autocomplete="off" required name="name" minlength="2" maxlength="40" placeholder="Логин">
           <p class="popup__input-error input-name-error"></p>
           <input class="popup__input popup__input_type_info" id="input-description"  type="text" autocomplete="off" required name="userInfo" minlength="2" maxlength="200" placeholder="Информация о пользователе">
@@ -73,8 +73,6 @@
        </div>
     </li>
   </template>
-  <script src="./scripts/cards.js"></script>
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/validate.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
