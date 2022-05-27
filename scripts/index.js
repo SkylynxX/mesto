@@ -22,7 +22,6 @@ const popupNIForm = document.querySelector('.popup__form_new-item');
 const popupImage = document.querySelector('.popup-image');
 const popupImgClose = document.querySelector('.popup-image__close');
 const popupImageImg = popupImage.querySelector('.popup-image__img');
-const allFormElements = popupHeadForm.querySelectorAll('.popup__form');
 
 const checkEsc = (evt) => {
   if(evt.key === 'Escape') {
@@ -38,13 +37,12 @@ function addCloseListener(popup) {
       closePopup(popup);
     }
   });
-    document.addEventListener('keydown', checkEsc);
+  document.addEventListener('keydown', checkEsc);
 }
 
 //Функция открытия попапа
 function openPopup (popup) {
   popup.classList.add('popup_opened');
-  addCloseListener(popup);
 };
 
 //Функция закрытие попапа
@@ -91,22 +89,29 @@ function addCard (evt) {
   renderCard({'name': popupNIFormName.value, 'link': popupNIFormLink.value});
   closePopup (popupNewItemForm);
   popupNIForm.reset();
-  disableButten(popupNewItemForm.querySelector('.popup__save_new-item'), 'popup__save_disabled');
+  validatorNIForm.disableButton(popupNewItemForm.querySelector('.popup__save_new-item'), 'popup__save_disabled');
 };
 
-const formList = Array.from(allFormElements);
-formList.forEach((formElement) => {
-    const validator = new FormValidator({
-      inputSelector: '.popup__input',
-      submitButtonSelector: '.popup__save',
-      inactiveButtonClass: 'popup__save_disabled',
-      inputErrorClass: 'popup__input_error',
-      errorClass: 'popup__input-error_visible'
-    },
-    formElement);
-    validator.enableValidation();
-  });
 
+const validatorFields = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_disabled',
+  inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__input-error_visible'
+};
+
+
+const validatorHeadForm = new FormValidator(validatorFields, formElement);
+validatorHeadForm.enableValidation();
+const validatorNIForm = new FormValidator(validatorFields, popupNIForm);
+validatorNIForm.enableValidation();
+
+
+
+addCloseListener(popupImage);
+addCloseListener(popupHeadForm);
+addCloseListener(popupNewItemForm);
 formElement.addEventListener('submit', formSubmitProfile);
 popupShowButton.addEventListener('click', openPopupHead);
 popupCloseButton.addEventListener('click', () => closePopup (popupHeadForm));

@@ -15,6 +15,7 @@ export class Card {
   _prepareLayout(){
     const template =  document.querySelector(this._templateSelector).content;
     this._elementContent = template.querySelector('.element').cloneNode(true);
+    this._buttonLike = this._elementContent.querySelector('.element__group-button')
     this._cardImg = this._elementContent.querySelector('.element__image');
     this._cardImg.src = this._link;
     this._elementContent.querySelector('.element__group-text').textContent = this._name;
@@ -22,16 +23,18 @@ export class Card {
   }
 
   _addEvtListners(){
-    this._elementContent.querySelector('.element__group-button').addEventListener('click', this._toggleLike);
-    this._elementContent.querySelector('.element__trash').addEventListener('click', this._removeCard);
+    this._elementContent.querySelector('.element__group-button').addEventListener('click', () => this._toggleLike());
+    this._elementContent.querySelector('.element__trash').addEventListener('click', () => this._removeCard());
     this._cardImg.addEventListener('click', () => this._handlePhotoClick(this._elementContent));
   }
-  _toggleLike (evt) {
-    evt.target.classList.toggle('element__group-button_black');
+
+  _toggleLike () {
+    this._buttonLike.classList.toggle('element__group-button_black');
   }
 
-  _removeCard (evt) {
-    evt.target.closest('.element').remove();
+  _removeCard () {
+    this._elementContent.remove();
+    this._elementContent = null;
   }
 
 }
