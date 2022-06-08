@@ -77,8 +77,8 @@ export class PopupWithForm extends Popup {
     //overload для случая когда надо подставить данные в открывающуюся форveу
     switch (arguments.length) {
     case 1:
-      this._popup.querySelector(`.${this._selectorPopup}__input_name`).value = arguments[0].userName;
-      this._popup.querySelector(`.${this._selectorPopup}__input_info`).value = arguments[0].userInfo;
+      this._popup.querySelector(`.${this._selectorPopup}__input-name`).value = arguments[0].userName;
+      this._popup.querySelector(`.${this._selectorPopup}__input-info`).value = arguments[0].userInfo;
       this._popup.classList.add('popup_opened');
       break;
     default:
