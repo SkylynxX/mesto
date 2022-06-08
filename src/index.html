@@ -5,15 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
   <header class="header">
-    <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Mesto">
+    <img class="header__logo" src="<%=require('../images/header-logo.svg')%>" alt="Логотип Mesto">
   </header>
   <main class="page">
     <section class="profile">
-      <img class="profile__avatar" src="./images/avatar-image.jpg" alt="аватарка профиля">
+      <img class="profile__avatar" src="<%=require('../images/avatar-image.jpg')%>" alt="аватарка профиля">
       <div class="profile__info">
         <div class="profile__title-box">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -30,29 +29,29 @@
   <footer class="footer">
     <p class="footer__autor">&copy;2020 Mesto Russia</p>
     </footer>
-  <div class="popup popup_profile">
+  <div class="popup popup-profile">
       <div class="popup__container">
-        <button class="popup__close" type="button" title="Закрыть окно" aria-label="Закрыть окно"></button>
+        <button class="popup__close popup-profile__close" type="button" title="Закрыть окно" aria-label="Закрыть окно"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form popup__form_profile" name="changeNameInfo">
-          <input class="popup__input popup__input_type_name" id="input-name" type="text" autocomplete="off" required name="name" minlength="2" maxlength="40" placeholder="Логин">
+        <form class="popup__form popup-profile__form" name="changeNameInfo">
+          <input class="popup__input popup-profile__input_name" id="input-name" type="text" autocomplete="off" required name="userName" minlength="2" maxlength="40" placeholder="Логин">
           <p class="popup__input-error input-name-error"></p>
-          <input class="popup__input popup__input_type_info" id="input-description"  type="text" autocomplete="off" required name="userInfo" minlength="2" maxlength="200" placeholder="Информация о пользователе">
+          <input class="popup__input popup-profile__input_info" id="input-description"  type="text" autocomplete="off" required name="userInfo" minlength="2" maxlength="200" placeholder="Информация о пользователе">
           <p class="popup__input-error input-description-error"></p>
           <button class="popup__save" type="submit" aria-label="Сохранить" value="Сохранить">Сохранить</button>
         </form>
       </div>
   </div>
-  <div class="popup popup_new-item">
-    <div class="popup__container popup__container_new-item">
-      <button class="popup__close popup__close_new-item" type="button" title="Закрыть окно" aria-label="Закрыть окно"></button>
-      <h2 class="popup__title popup__title_new-item">Новое место</h2>
-      <form class="popup__form popup__form_new-item" name="changeNameInfo">
-        <input class="popup__input popup__input_new-item_name" id="input-item-name" type="text" autocomplete="off" required name="name" minlength="2" maxlength="30" placeholder="Название">
+  <div class="popup popup-new-item">
+    <div class="popup__container popup-new-item__container">
+      <button class="popup__close popup-new-item__close" type="button" title="Закрыть окно" aria-label="Закрыть окно"></button>
+      <h2 class="popup__title popup-new-item__title">Новое место</h2>
+      <form class="popup__form popup-new-item__form" name="changeNameInfo">
+        <input class="popup__input popup-new-item__input_name" id="input-item-name" type="text" autocomplete="off" required name="name" minlength="2" maxlength="30" placeholder="Название">
         <p class="popup__input-error input-item-name-error"></p>
-        <input class="popup__input popup__input_new-item_link" id="input-item-url" type="url" autocomplete="off" required name="userInfo" placeholder="Ссылка на картинку">
+        <input class="popup__input popup-new-item__input_link" id="input-item-url" type="url" autocomplete="off" required name="link" placeholder="Ссылка на картинку">
         <p class="popup__input-error input-item-url-error"></p>
-        <button class="popup__save popup__save_new-item" type="submit" aria-label="Создать" value="Создать">Создать</button>
+        <button class="popup__save popup-new-item__save" type="submit" aria-label="Создать" value="Создать">Создать</button>
       </form>
     </div>
   </div>
@@ -73,6 +72,5 @@
        </div>
     </li>
   </template>
-  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>
