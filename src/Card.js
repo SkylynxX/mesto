@@ -25,7 +25,7 @@ export class Card {
   _addEvtListners(){
     this._elementContent.querySelector('.element__group-button').addEventListener('click', () => this._toggleLike());
     this._elementContent.querySelector('.element__trash').addEventListener('click', () => this._removeCard());
-    this._cardImg.addEventListener('click', () => this._handlePhotoClick(this._elementContent));
+    this._cardImg.addEventListener('click', () => this._handlePhotoClick({name: this._name, link: this._link}));
   }
 
   _toggleLike () {
