@@ -77,9 +77,9 @@ export class FormValidator {
 
   enableValidation () {
     // отмена стандартного поведения для каждой из выбранных форм
-    this._formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
+    // this._formElement.addEventListener('submit', function (evt) {
+    //   evt.preventDefault();
+    // });
     //добавляю валидацию для формы
     this._setEventListeners();
   };

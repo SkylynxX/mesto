@@ -3,7 +3,7 @@ import { Popup } from "./Popup.js";
 export class PopupWithConfirmation extends Popup {
   constructor(selectorPopup) {
     super(selectorPopup);
-    this._form = document.querySelector(`.${selectorPopup}__form`);
+    this._form = document.querySelector(`${selectorPopup}__form`);
   }
 
   setSubmitHandler(submitHandler) {

@@ -18,18 +18,20 @@ const api = new Api({
 });
 
 
+const userInfo = new UserInfo('.profile__title','.profile__subtitle','.profile__avatar');
+const cards = new Section({method: (item) => {
+    const card = creatNewCard(item);
+    cards.addItem(card);
+  }}, 'elements');
 
-const userInfo = new UserInfo('profile__title','profile__subtitle','profile__avatar');
 
-const popupImage = new PopupWithImage('popup-image');
+const popupImage = new PopupWithImage('.popup-image');
 popupImage.setEventListeners();
 
-const cards = new Section({method: creatNewCard}, 'elements');
 
 const popupShowButton = document.querySelector('.profile__edit-button');
 const popupPlusShowButton = document.querySelector('.profile__add-button');
 const popupAvaterButton = document.querySelector('.profile__avatar-link')
-const templateElemet = document.querySelector('.template').content;
 const validatorFields = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__save',
@@ -38,81 +40,80 @@ const validatorFields = {
   errorClass: 'popup__input-error_visible'
 };
 
-api.getUserInfo()
-    .then((rxUserInfo) => {
-      // console.log(rxUserInfo);
-      userInfo.setUserInfo(rxUserInfo);
-      api.getInitialCards()
-        .then((initCards) => {
-          // console.log(initCards);
-          cards.addItems(initCards);
-        })
-        .catch(err => console.log(err));
-    })
-    .catch(err => console.log(err));
+Promise.all([                               //в Promise.all передаем массив промисов которые нужно выполнить
+    api.getUserInfo(),
+    api.getInitialCards()
+  ])
+  .then(([rxUserInfo, initialCards])=>{    //попадаем сюда, когда оба промиса будут выполнены, деструктурируем ответ
+    userInfo.setUserInfo(rxUserInfo);      //все данные получены, отрисовываем страницу
+    cards.addItems(initialCards);
+  })
+  .catch((err)=>{                          //попадаем сюда если один из промисов завершится ошибкой
+    console.log(err);
+  })
 
-
-  const popupHeadForm = new PopupWithForm('popup-profile',
+  const popupHeadForm = new PopupWithForm('.popup-profile',
     (userInfoData) => {
       popupHeadForm.setButtonText('Cохранение...');
       api
         .setUserInfo(userInfoData)
         .then((res) => {
           userInfo.setUserInfo(res);
+          popupHeadForm.close();
         })
         .catch((err) => {
-          popupHeadForm.setButtonText(err);
           console.log(err)
         })
         .finally(() => {
-          popupHeadForm.close();
           popupHeadForm.setButtonText('Сохранить');
         });
     });
   const validatorHeadForm  = new FormValidator(validatorFields, popupHeadForm.getForm());
-  popupHeadForm.setEventListeners(validatorHeadForm);
+  validatorHeadForm.enableValidation();
+  popupHeadForm.setEventListeners();
 
 
-  const popupAvatar = new PopupWithForm('popup-avatar-update',
+  const popupAvatar = new PopupWithForm('.popup-avatar-update',
     (userInfoData) => {
       popupAvatar.setButtonText('Cохранение...');
       api
         .setUserAvatar(userInfoData)
         .then((res) => {
           userInfo.setUserInfo(res);
+          popupAvatar.close();
         })
         .catch((err) => {
-          popupAvatar.setButtonText(err);
           console.log(err)
         })
         .finally(() => {
-          popupAvatar.close();
           popupAvatar.setButtonText('Сохранить');
         });
     });
   const validatorAvatarForm  = new FormValidator(validatorFields, popupAvatar.getForm());
-  popupAvatar.setEventListeners(validatorAvatarForm);
+  validatorAvatarForm.enableValidation();
+  popupAvatar.setEventListeners();
 
-  const popupNewItemForm = new PopupWithForm('popup-new-item',
+  const popupNewItemForm = new PopupWithForm('.popup-new-item',
     (cardData) => {
       popupNewItemForm.setButtonText("Сохранение...");
       api
         .addCard(cardData)
         .then((res) => {
-          cards.addItem(res);
+          const card = creatNewCard(res);
+          cards.addItem(card);
+          popupNewItemForm.close();
         })
         .catch((err) => {
-          popupNewItemForm.setButtonText(err);
           console.log(err);
         })
         .finally(() => {
-          popupNewItemForm.close();
           popupNewItemForm.setButtonText("Сохранить");
         });
     }
   );
   const validatorNewItemForm  = new FormValidator(validatorFields, popupNewItemForm.getForm());
-  popupNewItemForm.setEventListeners(validatorNewItemForm);
+  validatorNewItemForm.enableValidation();
+  popupNewItemForm.setEventListeners();
 
 
 // функция которая создает объект в глобальном скоупе, используется и
@@ -154,15 +155,26 @@ function creatNewCard (item) {
   return element.createCard();
 }
 
-const popupDeleteCard = new PopupWithConfirmation('popup-confirm');
+const popupDeleteCard = new PopupWithConfirmation('.popup-confirm');
 popupDeleteCard.setEventListeners();
 
 // объект добавления 6-ти карточек из изначального массива
 
 
 
-popupShowButton.addEventListener('click', () => popupHeadForm.open(userInfo.getUserInfo()));
-popupPlusShowButton.addEventListener('click', () => popupNewItemForm.open());
-popupAvaterButton.addEventListener('click', () => popupAvatar.open());
+popupShowButton.addEventListener('click', () => {
+  popupHeadForm.setInputValues(userInfo.getUserInfo());
+  validatorHeadForm.resetValidation();
+  popupHeadForm.open();
+});
+popupPlusShowButton.addEventListener('click', () => {
+  validatorNewItemForm.resetValidation();
+  popupNewItemForm.open();
+});
+popupAvaterButton.addEventListener('click', () => {
+  popupAvatar.setInputValues(userInfo.getUserInfo());//из услоя задания не понятно должна ли быть заполнена при открытии, добавила для проверки нового метода
+  validatorAvatarForm.resetValidation();
+  popupAvatar.open();
+});
 
 

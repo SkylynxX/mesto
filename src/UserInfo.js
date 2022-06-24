@@ -1,18 +1,19 @@
 export class UserInfo {
-  constructor (nameElement, infoElement, imgElement) {
-    this._nameElement = nameElement;
-    this._infoElement = infoElement;
-    this._imgElement = imgElement;
-    this._nameTitle = document.querySelector(`.${nameElement}`);
-    this._infoSubtitle = document.querySelector(`.${infoElement}`);
-    this._img = document.querySelector(`.${imgElement}`);
+  constructor (selectorUserName, selectorUserAbout, selectorUserAvatar) {
+    this._nameElement = selectorUserName;
+    this._infoElement = selectorUserAbout;
+    this._imgElement = selectorUserAvatar;
+    this._nameTitle = document.querySelector(`${selectorUserName}`);
+    this._infoSubtitle = document.querySelector(`${selectorUserAbout}`);
+    this._img = document.querySelector(`${selectorUserAvatar}`);
     this._id = null;
   }
 
   getUserInfo () {
     return {
       name: this._nameTitle.textContent,
-      about: this._infoSubtitle.textContent
+      about: this._infoSubtitle.textContent,
+      avatar: this._img.src,
     };
   }
 
@@ -23,7 +24,6 @@ export class UserInfo {
     this._infoSubtitle.textContent = item.about;
     this._img.src = item.avatar;
     this._id = item._id;
-    this._cohort = item.cohort;
   }
 
   getUserID () {
