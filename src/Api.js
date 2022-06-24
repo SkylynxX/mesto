@@ -42,7 +42,7 @@ export class Api {
 
   //Отправить ссылку на новый аватар на сервер (аргумент - объект с данными о пользователе)
   setUserAvatar(userInfoData) {
-     console.log(userInfoData);
+    //console.log(userInfoData);
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,

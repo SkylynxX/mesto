@@ -1,5 +1,4 @@
 import { Card } from '../src/Card.js';
-import { initialCards } from '../utils/constants.js';
 import { Section } from '../src/Section.js';
 import { Popup } from '../src/Popup.js';
 import { PopupWithImage } from '../src/PopupWithImage';
