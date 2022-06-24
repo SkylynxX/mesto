@@ -6,3 +6,9 @@
   border: 1px solid #000000;
   border-radius: 2px;
 }
+
+
+.popup__save_disabled:hover {
+  cursor: default;
+  opacity: 0.2;
+}

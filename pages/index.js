@@ -1,12 +1,12 @@
-import { Card } from '../src/Card.js';
-import { Section } from '../src/Section.js';
-import { Popup } from '../src/Popup.js';
-import { PopupWithImage } from '../src/PopupWithImage';
-import { PopupWithForm } from '../src/PopupWithForm.js';
-import { PopupWithConfirmation } from '../src/PopupWithConfirmation.js';
-import { UserInfo } from '../src/UserInfo.js';
-import { FormValidator } from '../src/FormValidator.js';
-import { Api } from '../src/Api.js';
+import { Card } from '../components/Card.js';
+import { Section } from '../components/Section.js';
+import { Popup } from '../components/Popup.js';
+import { PopupWithImage } from '../components/PopupWithImage';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
+import { UserInfo } from '../components/UserInfo.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { Api } from '../components/Api.js';
 import './../pages/index.css';
 
 const api = new Api({
