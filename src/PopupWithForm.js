@@ -7,6 +7,7 @@ export class PopupWithForm extends Popup {
     this._form = document.querySelector(`.${selectorPopup}__form`);
     this._inputName = this._popup.querySelector(`.${this._selectorPopup}__input-name`);
     this._inputInfo = this._popup.querySelector(`.${this._selectorPopup}__input-info`);
+    this._submitButton = this._popup.querySelector(`.${this._selectorPopup}__save`);
     this._formInputs = this._form.querySelectorAll('input');
   }
 
@@ -17,10 +18,14 @@ export class PopupWithForm extends Popup {
     },this)
   }
 
+  setButtonText (buttonString) {
+    // console.log(this._submitButton);
+    this._submitButton.innerText = buttonString;
+  }
+
   _submitForm () {
     this._getInputValues();
     this._callbackFormSub(this._inputs);
-    this.close();
   };
 
 
@@ -28,8 +33,8 @@ export class PopupWithForm extends Popup {
     //overload для случая когда надо подставить данные в открывающуюся форveу
     switch (arguments.length) {
     case 1:
-      this._inputName.value = arguments[0].userName;
-      this._inputInfo.value = arguments[0].userInfo;
+      this._inputName.value = arguments[0].name;
+      this._inputInfo.value = arguments[0].about;
       break;
     default:
       break;
@@ -58,6 +63,7 @@ export class PopupWithForm extends Popup {
     this._validatorForm = validatorForm;
     this._validatorForm.enableValidation();
   }
+
   getForm() {
     return this._form;
   }
